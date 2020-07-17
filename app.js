@@ -6,12 +6,44 @@ const width = 4;
 let squares = new Array();
 let added = new Array();
 let score;
+let isAudioPlay = "OFF";
+let firstClick = true;
 document.addEventListener('DOMContentLoaded', () => {
     startGame();
+    openModal();
 });
-// $(document).ready(function(e){
-//     startGame();
-// });
+
+    function openModal(){
+        const modalButton = document.getElementById('instruction');
+        modalButton.click();
+    }
+
+    function displayAudioStatus(){
+        document.getElementById('audio-status').innerHTML = isAudioPlay;
+    }
+
+    function playMusic(){
+        const backgroundMusic = document.getElementById('audio');
+
+        if(isAudioPlay === "OFF" && firstClick){
+            backgroundMusic.play();
+            isAudioPlay = "ON";
+            firstClick = false;
+            displayAudioStatus();
+        }
+    }
+
+    function controlMusic(){
+        const backgroundMusic = document.getElementById('audio');
+        if(isAudioPlay === "ON"){
+            backgroundMusic.pause();
+            isAudioPlay = "OFF" ;
+        } else {
+            backgroundMusic.play();
+            isAudioPlay = "ON";
+        }
+        displayAudioStatus();
+    }
 
     function startGame(){
         initBoard()
@@ -20,9 +52,6 @@ document.addEventListener('DOMContentLoaded', () => {
         generateNumber();
         displayBoard();
     }
-
-    // startGame()
-    // console.log(squares);
 
     //generate board
     function initBoard(){

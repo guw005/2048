@@ -1,11 +1,18 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:900i&display=swap');
 
 body {
-    background: #eeeeee;
+    /* background: #eeeeee; */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+audio {
+    z-index: 4;
+}
+header {
+    z-index: 4;
 }
 
 .title {
@@ -23,11 +30,15 @@ body {
 
 #score-container {
     font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     text-transform: uppercase;
     margin-top: 20px;
+    color: goldenrod;
+    z-index: 4;
+    width: 65%;
 }
 
 /* #startgame {
@@ -45,9 +56,9 @@ body {
     padding: 20px;
     margin: 40px;
     border-radius: 10px;
-    background-color:#eeeeee;
+    /* background-color:#eeeeee; */
     position: relative;
-    box-shadow: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px rgba(255,255,255, 0.5);
+    /* box-shadow: 9px 9px 16px rgb(163,177,198,0.6), -9px -9px 16px rgba(255,255,255, 0.5); */
 }
 
 
@@ -55,7 +66,7 @@ body {
     width: 100px;
     height: 100px;
     border-radius: 6px;
-    background: #eeeeee;
+    /* background: #eeeeee; */
     position: absolute;
 }
     
@@ -90,7 +101,7 @@ body {
   margin: 11px 0 17px 0;
   font-size: 80px;
   line-height: 80px;
-    color: #e66053;
+    color: #270c44;
   text-shadow: 0 13.36px 8.896px #c4b59d,0 -2px 1px #fff;
   letter-spacing: -4px;
 }
@@ -99,24 +110,40 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* height: 100vh; */
 }
 
-#btn a {
+#instruction {
+    background-color: transparent;
+    border-color: transparent;
+    font-size: 20px;  
+    color: goldenrod;
+    text-transform: uppercase;
+    padding: 0;
+}
+
+#instruction:focus {
+    outline: 0;
+}
+
+#btn a{
   font-size: 20px;
-  /* padding: 1rem 3rem; */
   color: goldenrod;
   text-transform: uppercase;
 }
 
-#startgame {
+#audio-status{
+    margin-left: 5px;
+}
+
+#startgame, #instruction, #music{
   text-decoration: none;
   /* border: 1px solid rgb(146, 148, 248); */
   position: relative;
   overflow: hidden;
+  cursor: pointer;
 }
 
-#startgame:before {
+#startgame:before, #instruction:before, #music:before {
   content: "";
   position: absolute;
   top: 0;
@@ -132,6 +159,171 @@ body {
   transition: all 650ms;
 }
 
-#startgame:hover:before {
+#startgame:hover:before, #instruction:hover:before, #music:hover:before {
   left: 100%;
+}
+
+/* moving background */
+@-webkit-keyframes STAR-MOVE {
+	from {
+		left: 0;
+		top: 0;
+	}
+	to { 
+		left: -10000px;
+		top: -2000px;
+	}
+}
+
+#background {
+	background: black url(./image/background.png) repeat 5% 5%;
+	position: absolute;
+	top: 0; left: 0; right: 0; bottom: 0;
+	z-index: 0;
+	
+	-webkit-animation-name: STAR-MOVE;
+	-webkit-animation-duration: 200s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-iteration-count: infinite;
+}
+
+#midground {
+	background: url(./image/midground.png) repeat 20% 20%;
+	position: absolute;
+	top: 0; left: 0; right: 0; bottom: 0;
+	z-index: 1;
+	
+	-webkit-animation-name: STAR-MOVE;
+	-webkit-animation-duration: 150s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-iteration-count: infinite;
+}
+
+#foreground {
+	background: url(./image/foreground.png) repeat 35% 35%;
+	position: absolute;
+	top: 0; left: 0; right: 0; bottom: 0;
+	z-index: 2;
+	
+	-webkit-animation-name: STAR-MOVE;
+	-webkit-animation-duration: 100s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-iteration-count: infinite;
+}
+
+/* modal */
+.modal-content {
+    top: 15em;
+    background: transparent;
+}
+
+.flex-center a {
+    color: white;
+    text-decoration: none;
+}
+
+.flex-center a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.flex-center {
+  background:transparent;
+  
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.icon-3d {
+  padding: 10px;
+  -webkit-animation: icon3d 200ms 10;
+  animation: icon3d 200ms 10;
+  color: #fff;
+  cursor: pointer;
+}
+
+.icon-3d:hover {
+    -webkit-animation: icon3d 200ms infinite;
+          animation: icon3d 200ms infinite;
+}
+
+@keyframes icon3d {
+  0% {
+    text-shadow: 5px 4px rgba(244,67,54,1), -5px -6px rgba(33,150,243,1);
+  }
+  25% {
+    text-shadow: -5px -6px rgba(244,67,54,1), 5px 4px rgba(33,150,243,1);
+  }
+  50% {
+    text-shadow: 5px -4px rgba(244,67,54,1), -8px 4px rgba(33,150,243,1);
+  }
+  75% {
+    text-shadow: -8px -4px rgba(244,67,54,1), -5px -4px rgba(33,150,243,1);
+  }
+  100% {
+    text-shadow: -5px 0 rgba(244,67,54,1), 5px -4px rgba(33,150,243,1);
+  }
+}
+
+.intro {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+}
+
+.extra-intro {
+    color: goldenrod;
+    font-size: 16px;
+}
+
+.play-close {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-default {
+    background-color: transparent;
+    border-radius: 4px;  
+    color: #fff;
+    cursor: pointer;
+    padding: 8px 16px;
+    font-size: 24px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.btn-default:hover{
+    color: white;
+   background-image:  linear-gradient(
+      to right, 
+      #E7484F,
+      #E7484F 16.65%,
+      #F68B1D 16.65%,
+      #F68B1D 33.3%,
+      #FCED00 33.3%,
+      #FCED00 49.95%,
+      #009E4F 49.95%,
+      #009E4F 66.6%,
+      #00AAC3 66.6%,
+      #00AAC3 83.25%,
+      #732982 83.25%,
+      #732982 100%,
+      #E7484F 100%
+    );
+   animation:slidebg 2s linear infinite;
+}
+
+@keyframes slidebg {
+  to {
+    background-position:20vw;
+  }
 }
