@@ -13,9 +13,9 @@ Here is a working live demo :  https://guw005.github.io/Space2048/
 
 ## Site
 ### Introduction
-![](https://github.com/guw005/MeTube/blob/master/index_snap.png)
+![](https://github.com/guw005/Space2048/blob/master/screenshot_1.png)
 ### Gameplay
-![](https://github.com/guw005/MeTube/blob/master/show_snap.png)
+![](https://github.com/guw005/Space2048/blob/master/screenshot_2.png)
 
 
 
