@@ -14,8 +14,10 @@ Here is a working live demo :  https://guw005.github.io/Space2048/
 ## Site
 ### Introduction
 ![](https://github.com/guw005/Space2048/blob/master/screenshot_1.png)
-### Gameplay
+### Game
 ![](https://github.com/guw005/Space2048/blob/master/screenshot_2.png)
+### Gameplay
+![](https://github.com/guw005/Space2048/blob/master/gameplay.gif)
 
 
 
@@ -85,6 +87,7 @@ Randomly pick position X and position Y using Math.random() and using Math.rando
         }
     }
 ```
+
 ## Background Music
 Due to the restriction of chrome, the background music cannot achieve auto-play right now. However, by clicking on either play button in the modal or music button in the game, the background music will be played or paused.
 ```javascript
