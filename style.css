@@ -176,7 +176,7 @@ header {
 }
 
 #background {
-	background: black url(./image/background.png) repeat 5% 5%;
+	background: black url(./background.png) repeat 5% 5%;
 	position: absolute;
 	top: 0; left: 0; right: 0; bottom: 0;
 	z-index: 0;
@@ -188,7 +188,7 @@ header {
 }
 
 #midground {
-	background: url(./image/midground.png) repeat 20% 20%;
+	background: url(./midground.png) repeat 20% 20%;
 	position: absolute;
 	top: 0; left: 0; right: 0; bottom: 0;
 	z-index: 1;
@@ -200,7 +200,7 @@ header {
 }
 
 #foreground {
-	background: url(./image/foreground.png) repeat 35% 35%;
+	background: url(./foreground.png) repeat 35% 35%;
 	position: absolute;
 	top: 0; left: 0; right: 0; bottom: 0;
 	z-index: 2;
